@@ -1,8 +1,14 @@
 ﻿<Window x:Class="ClueAI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Clue" Height="Auto" Width="Auto" Loaded="OnLoaded" SizeToContent="WidthAndHeight" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="422" d:DesignWidth="563" KeyDown="OnKeyDown">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="336*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Canvas Height="327" HorizontalAlignment="Left" Name="boardCanvas" VerticalAlignment="Top" Width="541" Grid.Row="0" />
+        <Button Content="Clue Sheet" Height="23" HorizontalAlignment="Left"
+                Name="btnClueSheet" VerticalAlignment="Center" Width="75" Grid.Row="1" Margin="12,0,0,0" />
     </Grid>
 </Window>

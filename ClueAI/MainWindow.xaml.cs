@@ -1,27 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ClueAI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
+        private Board board;
+
         public MainWindow()
         {
             InitializeComponent();
+            board = new Board();
+        }
+
+        private void Draw()
+        {
+            // size and move controls into their dynamic positions
+            boardCanvas.Width = Board.Width * Board.CellWidth;
+            boardCanvas.Height = Board.Height * Board.CellHeight;
+
+            board.Draw(boardCanvas);
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Draw();
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
         }
     }
 }
